@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using ClassLibrary.Interfaces;
 
@@ -8,9 +9,11 @@ namespace ClassLibrary.Combo
     {
         protected List<IPrice> Products;
         
-        public virtual double GetPrice()
+        protected double GetSumOfPrice(Func<double, double> action)
         {
-            return Products.Sum(product => product.GetPrice());
+            return action(Products.Sum(product => product.GetPrice()));
         }
+
+        public abstract double GetPrice();
     }
 }

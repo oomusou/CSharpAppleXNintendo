@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using ClassLibrary.Interfaces;
 
 namespace ClassLibrary.Combo
@@ -19,7 +18,7 @@ namespace ClassLibrary.Combo
 
         public override double GetPrice()
         {
-            return base.GetPrice() - _minus;
+            return GetSumOfPrice(sum => sum - _minus);
         }
     }
 }
