@@ -1,4 +1,6 @@
 ﻿using System;
+using ClassLibrary;
+using ClassLibrary.Combo;
 
 namespace ConsoleApp
 {
@@ -6,7 +8,11 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var shoppingCartService = new ShoppingCartService();
+            shoppingCartService.AddCart(new AppleXNintendo());
+
+            var result = shoppingCartService.CalculatePrice();
+            Console.WriteLine("{0}", result);
         }
     }
 }
