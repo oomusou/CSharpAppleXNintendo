@@ -1,18 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using ClassLibrary.Apple;
 using ClassLibrary.Interfaces;
+using ClassLibrary.Single.Apple;
 
 namespace ClassLibrary.Combo
 {
-    public class Apple : IPrice
+    public class Apple : ComboBase
     {
         private double _discount = 0.9;
-        private readonly List<IPrice> _products;
 
         public Apple()
         {
-            _products = new List<IPrice>
+            Products = new List<IPrice>
             {
                 new MacBookPro(),
                 new PadAir(),
@@ -20,9 +19,9 @@ namespace ClassLibrary.Combo
             };
         }
         
-        public double GetPrice()
+        public override double GetPrice()
         {
-            return _discount * _products.Sum(product => product.GetPrice());
+            return _discount * base.GetPrice();
         }
     }
 }

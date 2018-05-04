@@ -1,10 +1,10 @@
 ﻿using ClassLibrary.Interfaces;
 
-namespace ClassLibrary.Nintendo
+namespace ClassLibrary.Single
 {
-    public class Switch : IPrice
+    public abstract class SingleBase : IPrice
     {
-        private double Price = 10000.0;
+        protected double Price;
 
         public double GetPrice()
         {
